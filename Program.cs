@@ -1,97 +1,57 @@
-﻿//Diferencia entre declaración implícita (var) y explícita (int u otro tipo de dato)
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
 
-/* aquí comienza el comentario
- 
-int numero1, numero2, numero3;
-//var numero4, numero5;
+//string[] Cars = { "Ford", "Fiat", "BMW", "Toyota" };
 
-var miVariable = 0;
+//Console.WriteLine(Cars[0]);
 
-Console.WriteLine($"El contenido de mi variable es: {miVariable}");
+//string[] frutas = new string[4];
 
-var miVariable2 = "un texto";
+//frutas[0] = "Pera";
+//frutas[1] = "Manzana";
+//frutas[2] = "Banana";
+//frutas[3] = "Kiwi";
 
-Console.WriteLine($"El contenido de mi variable es: {miVariable2}");
+////frutas[4] = "Naranja";
 
-...aquí termina */
+//Console.WriteLine(frutas[2]);
+//Console.WriteLine(frutas[3]);
+//Console.WriteLine("");
+//Console.WriteLine(frutas[4]);
 
-//----------------------------------------------------------------------
+int[] numeros = new int[5];
+Console.WriteLine($"el array tine tantas posiciones: {numeros.Length} ");
+Console.WriteLine("por favor ingrese numeros");
+//numeros[0] = int.Parse(Console.ReadLine());
+//numeros[1] = int.Parse(Console.ReadLine());
+//numeros[2] = int.Parse(Console.ReadLine());
+//numeros[3] = int.Parse(Console.ReadLine());
+//numeros[4] = int.Parse(Console.ReadLine());
 
-/*
-Escribir un programa que haga lo siguiente:
-
-1) Borrar la pantalla.
-2) Pedir el nombre de una persona. INGRESO DE DATOS
-3) Saludarlo con un texto que diga "¡Hola [NombreIngresado]!" IMPRIMIR EN PANTALLA
-4) Preguntar si se quiere continuar. CONDICIONAL "IF"
-5) Si la respuesta es "S" repetir desde el punto 1. BUCLE
-6) Si la respuesta es "N" finalizar el programa mostrando 
-   un mensaje que diga "Programa finalizado correctamente". IMP. PANTALLA
-7) Si la respuesta no es ni "S" ni "N" que tambien 
-   finalice el programa, pero mostrando un mensaje 
-   que diga "Opcion no valida". IMP. PANTALLA
-
-*/
-
-//Alternativa con While
-
-/*
-var opcionElegida = "S";
-
-while (opcionElegida.ToUpper() == "S")
+for (int i = 0; i < numeros.Length; i++)
 {
-    //Borro la pantalla
-    Console.Clear();
-
-    //Pido el nombre de la persona
-    Console.WriteLine("¡Buenas! Ingrese su nombre: ");
-    var nombrePersona = Console.ReadLine();
-
-    //Muestro el saludo
-    //Console.WriteLine("¡Hola " + nombrePersona + "!");
-    Console.WriteLine($"¡Hola {nombrePersona}!");
-
-    Console.WriteLine("¿Desea continuar? S para sí, N para no.");
-    opcionElegida = Console.ReadLine();
+    Console.WriteLine($"por favor ingrse el numero: {i+1}" );
+    numeros[i] =int.Parse(Console.ReadLine());
 }
 
-if(opcionElegida.ToUpper() == "N")
+int suma = 0;
+for (int i = 0; i < numeros.Length; i++)
 {
-    Console.WriteLine("Programa finalizado correctamente");
+    //suma += numeros[i];
+    suma = suma + numeros[i];
 }
-else
+Console.WriteLine($"valor de suma = {suma}");
+
+Console.WriteLine("los valores son: ");
+
+for (int i = 0; i < numeros.Length; i++)
 {
-    Console.WriteLine("Opción no válida.");
+    Console.WriteLine(numeros[i]);
 }
-*/
 
-//-------------------------------------------------------
-
-//Alternativa con Do-While (hacer-mientras)
-string opcionElegida;
-do
+foreach (var item in numeros)
 {
-    //Borro la pantalla
-    Console.Clear();
-
-    //Pido el nombre de la persona
-    Console.WriteLine("¡Buenas! Ingrese su nombre: ");
-    var nombrePersona = Console.ReadLine();
-
-    //Muestro el saludo
-    //Console.WriteLine("¡Hola " + nombrePersona + "!");
-    Console.WriteLine($"¡Hola {nombrePersona}!");
-
-    Console.WriteLine("¿Desea continuar? S para sí, N para no.");
-    opcionElegida = Console.ReadLine();
-
-    if (opcionElegida.ToUpper() == "N")
-    {
-        Console.WriteLine("Programa finalizado correctamente");
-    }
-    else if(opcionElegida.ToUpper() != "S")
-    {
-        Console.WriteLine("Opción no válida.");
-    }
+    Console.WriteLine(item);
 }
-while (opcionElegida.ToUpper() == "S");
+
+
