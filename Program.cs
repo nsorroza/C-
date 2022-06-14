@@ -1,110 +1,127 @@
-﻿/*
-    -Vector
- */
+﻿var bingo = new int[3, 9];
 
-//Console.WriteLine("Ingrese la cantidad de alumnos");
-////Ingresamos el tamanio del vector
-//int cantidadAlumnos = int.Parse(Console.ReadLine());
+var columnas1 = 3;
+var columnas2 = 6;
+int[] filas = new int[3];
+filas[0] = 0;
+filas[1] = 0;
+filas[2] = 0;
 
-//// Tipo[] nombre = new tipo[tamanio]
-//int[] notas = new int[cantidadAlumnos];
-
-//Console.WriteLine("Ingrese las notas de cada alumno");
-
-//// Recorremos el vector para cargar
-//for (int posicion = 0; posicion < notas.Length; posicion++)
+//for (int i = 0; i < 9; i++)
 //{
-//    Console.WriteLine($"Nota del alumano N° {posicion + 1}: ");
-//    notas[posicion] = int.Parse(Console.ReadLine());
+//    var min = 0;
+//    var max = 0;
+//    switch (i)
+//    {
+//        case 0:
+//            min = 1;
+//            max = 10;
+//            break;
+//        case 8:
+//            min = 80;
+//            max = 91;
+//            break;
+//        default:
+//            min = i * 10;
+//            max = i * 20;
+//            break;
+//    }
+
+//    var columna = new Random().Next(1, 3);
+//    if (columna == 1 && columnas1 > 0)
+//    {
+//        columnas1--;
+//    }
+//    else
+//    {
+//        columnas2--;
+//    }
 //}
 
-//Console.WriteLine();
-//Console.WriteLine("========================");
-//Console.WriteLine();
-
-//for (int posicion = 0; posicion < notas.Length; posicion++)
-//{
-//    Console.WriteLine($"La nota del alumno N° {posicion + 1}: {notas[posicion]}" );
-//}
 
 
-/* 
-    -Matriz bidimensional 
-    -For anidados
- */
-Console.WriteLine("=======================================");
-Console.WriteLine("Ingrese las notas de los examenes");
-
-Console.WriteLine();
-Console.WriteLine("=======================================");
-
-Console.Write("Ingrese la cantidad de alumnos: ");
-// Determina las columnas
-int cantidadAlumnos = int.Parse(Console.ReadLine());
-
-Console.WriteLine();
-
-Console.Write("Ingrese la cantidad de notas por alumno: ");
-// Determina las filas
-int cantidadNotas = int.Parse(Console.ReadLine());
-
-Console.WriteLine();
-Console.WriteLine("=======================================");
-
-// Tipo[,] nombre = new tipo[tamanioFilas, tamanioColumnas]
-int[,] notas = new int[cantidadNotas, cantidadAlumnos];
-
-//Cantidad de filas
-int lengthFilas = notas.GetUpperBound(0) + 1;
-
-//Cantidad de columnas
-int lengthColumnas = notas.GetUpperBound(1) + 1;
-
-//Recorremos columnas
-for (int columna = 0; columna < lengthColumnas; columna++)
+for (int i = 0; i < 9; i++)
 {
-    Console.WriteLine();
+    var min = 0;
+    var max = 0;
 
-    Console.WriteLine($"Notas del alumno N° {columna + 1}: ");
+    int maxValue = filas.Max();
+    int maxIndex = filas.ToList().IndexOf(maxValue);
 
-    // Recorremos filas
-    for (int fila = 0; fila < lengthFilas; fila++)
+    switch (i)
     {
-        Console.Write($"Cargue la nota N° {fila + 1}: ");
-        notas[fila, columna] = int.Parse(Console.ReadLine());
+        case 0:
+            min = 1;
+            max = 10;
+            break;
+        case 8:
+            min = 80;
+            max = 91;
+            break;
+        default:
+            min = i * 10;
+            max = i * 20;
+            break;
+    }
+
+    var columna = new Random().Next(1, 3);
+    if (columna == 1 && columnas1 > 0)
+    {
+
+        columnas1--;
+
+        var fila = new Random().Next(0, 3);
+
+        while (filas[fila] == 5 || fila == maxIndex)
+        {
+            fila = new Random().Next(0, 3);
+        }
+        filas[fila]++;
+
+        var valor = new Random().Next(min, max);
+
+        bingo[fila, i] = valor;
+    }
+    else
+    {
+        if (i == 8)
+        {
+            Console.WriteLine();
+        }
+        columnas2--;
+
+        var fila = new Random().Next(0, 3);
+        while (filas[fila] == 5 || fila == maxIndex)
+        {
+            fila = new Random().Next(0, 3);
+        }
+        filas[fila]++;
+
+
+        var valor = new Random().Next(min, max);
+
+        bingo[fila, i] = valor;
+
+        var fila2 = new Random().Next(0, 3);
+        while (filas[fila2] == 5 || fila2 == maxIndex)
+        {
+            fila2 = new Random().Next(0, 3);
+        }
+        filas[fila2]++;
+
+
+        var valor2 = new Random().Next(min, max);
+
+        bingo[fila2, i] = valor2;
+
     }
 }
 
-Console.WriteLine();
-Console.WriteLine("=======================================");
-
-// Recorremos las columnas
-for (int columna = 0; columna < lengthColumnas; columna++)
+for (int i = 0; i < 3; i++)
 {
-    
-    Console.WriteLine();
-    Console.WriteLine($"Notas del alumno N°: {columna + 1}: ");
-
-    // Recorremos filas
-    for (int fila = 0; fila < lengthFilas; fila++)
+    for (int x = 0; x < 9; x++)
     {
-        Console.Write($"La nota N° {fila + 1}: ");
-        Console.WriteLine(notas[fila, columna]);
-
-        /*
-            Si queremos obtener un valor de una posicion concreta de la matriz
-         */
-
-        //if (fila == 2 && columna == 0)
-        //{
-        //    Console.Write($"La nota N° {fila + 1}: ");
-        //    Console.WriteLine(notas[fila, columna]);
-        //}
+        Console.WriteLine($"{i} {x} = " + bingo[i, x]);
     }
+    Console.WriteLine();
 }
-
-//Obtenemos un valor de una posicion concreta
-//int nota3 = notas[2, 0];
-
-
-Console.ReadKey();
