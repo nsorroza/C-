@@ -1,11 +1,9 @@
-﻿using Constructores.Modelo;
+﻿using ConsoleApp1.Modelo;
 
-var persona1 = new Persona("Ezequiel Etchecoin", "12312", 30, true);
+Console.WriteLine("Estamos creando un nuevo Auto. Ingrese Tipo de Motor:");
+var tipoMotor = Console.ReadLine();
 
-Console.WriteLine(persona1.ObtenerSaludo());
-Console.WriteLine(persona1.ObtenerSaludo("Carlos"));
+var miAuto = new Auto();
+miAuto.TipoDeMotor = tipoMotor;
 
-var persona2 = new Persona { NombreCompleto = "Carlos Moscoso" };
-
-//Esta clase también se incorpora desde el namespace Constructores.Modelo
-var miOcupacion = new Ocupacion();
+Console.WriteLine(miAuto.TipoDeMotor);
