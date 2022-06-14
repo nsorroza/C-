@@ -1,28 +1,34 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+Console.Clear();
 
-//const int ValorMaximo = 100;
+Console.WriteLine("Este programa calcula la superficie de un rectangulo");
+Console.WriteLine();
 
-//string apellido;
-//apellido = "Perez";
+//decimal v = decimal.Parse("222");
 
-//int edad = 30;
+//string baseRectanguloTexto = Console.ReadLine();
+//double baseRectangulo = double.Parse(baseRectanguloTexto);
 
-//Console.WriteLine("Hola");
-//Console.WriteLine(apellido);
-//Console.WriteLine(edad);
+Console.WriteLine("Ingrese la base del rectangulo");
+double baseRectangulo = double.Parse(Console.ReadLine());
 
-//apellido = "Lopez";
+Console.WriteLine("Ingrese la altura del rectangulo");
+double alturaRectangulo = double.Parse(Console.ReadLine());
 
-//Console.WriteLine(apellido);
+double superficieRectangulo =
+    baseRectangulo * alturaRectangulo;
 
-//Console.WriteLine(ValorMaximo);
+Console.Write("La superficie del rectangulo es: ");
+Console.WriteLine(superficieRectangulo);
 
-//Console.WriteLine("Hola " + apellido);
+bool esMayorADiez = superficieRectangulo > 10;
 
-float numero1 = 3.12345678901234567890f;
-decimal numero2 = 3.12345678901234567890m;
-double numero3 = 3.12345678901234567890;
+if (esMayorADiez)
+{
+    // Mostrar mensaje solamente si es mayor a diez
+    Console.WriteLine("La superficie del rectangulo es mayor a 10");
+}
 
-Console.WriteLine("El numero 1 es: " + numero1);
-Console.WriteLine("El numero 2 es: " + numero2);
-Console.WriteLine("El numero 3 es: " + numero3);
+//string cualquiercosa = "hola";
+
+Console.ReadKey();
