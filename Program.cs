@@ -1,47 +1,28 @@
-﻿namespace IntroObjetos
+﻿using Alumnitos;
+
+var alumno1 = new Alumno();
+
+alumno1.Apellido = "Mateos";
+alumno1.Nombre = "Joaquin";
+alumno1.Legajo = 1;
+alumno1.DNI = "30.560.420";
+alumno1.FechaNacimiento = new DateTime(1986, 11, 4);
+alumno1.Calificaciones = new List<int>();
+
+
+
+var alumno2 = new Alumno()
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            // Instancia 1
-            Perro firulais = new Perro();
-            firulais.Color = "Negro";
-            firulais.Edad = 4;
-            firulais.Tamanio = "Grande";
-            firulais.Raza = "Matin Napolitano";
+    Apellido = "Etchecoin",
+    Nombre = "Ezequiel",
+    Legajo = 2,
+    DNI = "42.560.220",
+    FechaNacimiento = new DateTime(2000,6,2)
+};
 
-            // Instancia 2
-            var fatiga = new Perro();
-            fatiga.Color = "Blanco";
-            fatiga.Edad = 2;
-            fatiga.Tamanio = "Chico";
-            fatiga.Raza = "Maltes";
 
-            // Instancia 3
-            var cartucho = new Perro();
-            cartucho.Color = "Marron";
-            cartucho.Edad = 3;
-            cartucho.Tamanio = "Medio";
-            cartucho.Raza = "Chow chow";
+alumno1.CargarCalificacion(5, new DateTime(2022,6,1));
+alumno1.CargarCalificacion(9, new DateTime(2022,4,10));
+alumno1.CargarCalificacion(8);
 
-            // Lista de perros
-            var perritos = new List<Perro>();
-            perritos.Add(firulais);
-            perritos.Add(fatiga);
-            perritos.Add(cartucho);
-
-            //Console.WriteLine(firulais.Raza);
-            //Console.WriteLine(fatiga.Raza);
-            //Console.WriteLine(cartucho.Raza);            
-                        
-            Console.WriteLine($"Hay {perritos.Count()} perritos en la lista");
-            foreach (var item in perritos)
-            {
-                Console.Write(item.Raza + " -> ");
-                item.Ladrar();
-            }
-
-        }
-    }
-}
+Console.WriteLine(alumno1.ObtenerPromedio());
