@@ -1,26 +1,47 @@
-﻿////Pilas
-//var miPila = new Stack<int>();
+﻿namespace IntroObjetos
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Instancia 1
+            Perro firulais = new Perro();
+            firulais.Color = "Negro";
+            firulais.Edad = 4;
+            firulais.Tamanio = "Grande";
+            firulais.Raza = "Matin Napolitano";
 
-//miPila.Push(1);
-//miPila.Push(2);
-//miPila.Push(3);
-//miPila.Push(4);
+            // Instancia 2
+            var fatiga = new Perro();
+            fatiga.Color = "Blanco";
+            fatiga.Edad = 2;
+            fatiga.Tamanio = "Chico";
+            fatiga.Raza = "Maltes";
 
-//Console.WriteLine(miPila.Pop());
-//Console.WriteLine(miPila.Pop());
-//Console.WriteLine(miPila.Pop());
-//Console.WriteLine(miPila.Pop());
+            // Instancia 3
+            var cartucho = new Perro();
+            cartucho.Color = "Marron";
+            cartucho.Edad = 3;
+            cartucho.Tamanio = "Medio";
+            cartucho.Raza = "Chow chow";
 
+            // Lista de perros
+            var perritos = new List<Perro>();
+            perritos.Add(firulais);
+            perritos.Add(fatiga);
+            perritos.Add(cartucho);
 
-//Colas
-var miCola = new Queue<int>();
+            //Console.WriteLine(firulais.Raza);
+            //Console.WriteLine(fatiga.Raza);
+            //Console.WriteLine(cartucho.Raza);            
+                        
+            Console.WriteLine($"Hay {perritos.Count()} perritos en la lista");
+            foreach (var item in perritos)
+            {
+                Console.Write(item.Raza + " -> ");
+                item.Ladrar();
+            }
 
-miCola.Enqueue(1);
-miCola.Enqueue(2);
-miCola.Enqueue(3);
-miCola.Enqueue(4);
-
-Console.WriteLine(miCola.Dequeue());
-Console.WriteLine(miCola.Dequeue());
-Console.WriteLine(miCola.Dequeue());
-Console.WriteLine(miCola.Dequeue());
+        }
+    }
+}
