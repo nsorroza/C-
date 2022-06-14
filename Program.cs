@@ -1,57 +1,110 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿/*
+    -Vector
+ */
 
-//string[] Cars = { "Ford", "Fiat", "BMW", "Toyota" };
+//Console.WriteLine("Ingrese la cantidad de alumnos");
+////Ingresamos el tamanio del vector
+//int cantidadAlumnos = int.Parse(Console.ReadLine());
 
-//Console.WriteLine(Cars[0]);
+//// Tipo[] nombre = new tipo[tamanio]
+//int[] notas = new int[cantidadAlumnos];
 
-//string[] frutas = new string[4];
+//Console.WriteLine("Ingrese las notas de cada alumno");
 
-//frutas[0] = "Pera";
-//frutas[1] = "Manzana";
-//frutas[2] = "Banana";
-//frutas[3] = "Kiwi";
+//// Recorremos el vector para cargar
+//for (int posicion = 0; posicion < notas.Length; posicion++)
+//{
+//    Console.WriteLine($"Nota del alumano N° {posicion + 1}: ");
+//    notas[posicion] = int.Parse(Console.ReadLine());
+//}
 
-////frutas[4] = "Naranja";
+//Console.WriteLine();
+//Console.WriteLine("========================");
+//Console.WriteLine();
 
-//Console.WriteLine(frutas[2]);
-//Console.WriteLine(frutas[3]);
-//Console.WriteLine("");
-//Console.WriteLine(frutas[4]);
+//for (int posicion = 0; posicion < notas.Length; posicion++)
+//{
+//    Console.WriteLine($"La nota del alumno N° {posicion + 1}: {notas[posicion]}" );
+//}
 
-int[] numeros = new int[5];
-Console.WriteLine($"el array tine tantas posiciones: {numeros.Length} ");
-Console.WriteLine("por favor ingrese numeros");
-//numeros[0] = int.Parse(Console.ReadLine());
-//numeros[1] = int.Parse(Console.ReadLine());
-//numeros[2] = int.Parse(Console.ReadLine());
-//numeros[3] = int.Parse(Console.ReadLine());
-//numeros[4] = int.Parse(Console.ReadLine());
 
-for (int i = 0; i < numeros.Length; i++)
+/* 
+    -Matriz bidimensional 
+    -For anidados
+ */
+Console.WriteLine("=======================================");
+Console.WriteLine("Ingrese las notas de los examenes");
+
+Console.WriteLine();
+Console.WriteLine("=======================================");
+
+Console.Write("Ingrese la cantidad de alumnos: ");
+// Determina las columnas
+int cantidadAlumnos = int.Parse(Console.ReadLine());
+
+Console.WriteLine();
+
+Console.Write("Ingrese la cantidad de notas por alumno: ");
+// Determina las filas
+int cantidadNotas = int.Parse(Console.ReadLine());
+
+Console.WriteLine();
+Console.WriteLine("=======================================");
+
+// Tipo[,] nombre = new tipo[tamanioFilas, tamanioColumnas]
+int[,] notas = new int[cantidadNotas, cantidadAlumnos];
+
+//Cantidad de filas
+int lengthFilas = notas.GetUpperBound(0) + 1;
+
+//Cantidad de columnas
+int lengthColumnas = notas.GetUpperBound(1) + 1;
+
+//Recorremos columnas
+for (int columna = 0; columna < lengthColumnas; columna++)
 {
-    Console.WriteLine($"por favor ingrse el numero: {i+1}" );
-    numeros[i] =int.Parse(Console.ReadLine());
+    Console.WriteLine();
+
+    Console.WriteLine($"Notas del alumno N° {columna + 1}: ");
+
+    // Recorremos filas
+    for (int fila = 0; fila < lengthFilas; fila++)
+    {
+        Console.Write($"Cargue la nota N° {fila + 1}: ");
+        notas[fila, columna] = int.Parse(Console.ReadLine());
+    }
 }
 
-int suma = 0;
-for (int i = 0; i < numeros.Length; i++)
+Console.WriteLine();
+Console.WriteLine("=======================================");
+
+// Recorremos las columnas
+for (int columna = 0; columna < lengthColumnas; columna++)
 {
-    //suma += numeros[i];
-    suma = suma + numeros[i];
+    
+    Console.WriteLine();
+    Console.WriteLine($"Notas del alumno N°: {columna + 1}: ");
+
+    // Recorremos filas
+    for (int fila = 0; fila < lengthFilas; fila++)
+    {
+        Console.Write($"La nota N° {fila + 1}: ");
+        Console.WriteLine(notas[fila, columna]);
+
+        /*
+            Si queremos obtener un valor de una posicion concreta de la matriz
+         */
+
+        //if (fila == 2 && columna == 0)
+        //{
+        //    Console.Write($"La nota N° {fila + 1}: ");
+        //    Console.WriteLine(notas[fila, columna]);
+        //}
+    }
 }
-Console.WriteLine($"valor de suma = {suma}");
 
-Console.WriteLine("los valores son: ");
-
-for (int i = 0; i < numeros.Length; i++)
-{
-    Console.WriteLine(numeros[i]);
-}
-
-foreach (var item in numeros)
-{
-    Console.WriteLine(item);
-}
+//Obtenemos un valor de una posicion concreta
+//int nota3 = notas[2, 0];
 
 
+Console.ReadKey();
